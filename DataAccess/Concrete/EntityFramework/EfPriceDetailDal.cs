@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfPersonDal : EfEntityRepositoryBase<Person, TicketBookingContext>, IPersonDal
+    public class EfPriceDetailDal : EfEntityRepositoryBase<PriceDetail, TicketBookingContext>, IPriceDetailDal
     {
     }
 }

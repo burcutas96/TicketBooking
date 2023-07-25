@@ -12,8 +12,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IPersonDal, EfPersonDal>();
-builder.Services.AddSingleton<IPersonService, PersonManager>();
+builder.Services.AddSingleton<IBasePriceDal, EfBasePriceDal>();
+builder.Services.AddSingleton<IBasePriceService, BasePriceManager>();
+builder.Services.AddSingleton<IPriceDetailDal, EfPriceDetailDal>();
+builder.Services.AddSingleton<IPriceDetailService, PriceDetailManager>();
 
 var app = builder.Build();
 

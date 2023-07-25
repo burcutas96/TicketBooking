@@ -12,7 +12,9 @@ namespace DataAccess.Concrete.EntityFramework
             options.UseNpgsql(@"Server=ticket-booking.cl7uvv8utzfs.eu-north-1.rds.amazonaws.com;Port=5432;Database=flight_ticket_booking;User Id=postgres;Password=ticketbooking123;");
         }
 
-        DbSet<Person> persons { get; set; }
+        DbSet<BasePrice> base_prices { get; set; } 
+        DbSet<PriceDetail> price_details { get; set; } 
+
 
     }
 }

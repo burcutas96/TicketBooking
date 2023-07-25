@@ -1,17 +1,14 @@
 ﻿using Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Core.Utilities.Result;
 
 namespace Core.Business
 {
     public interface IEntityService<T> where  T : BaseEntity, new()
     {
-        List<T> GetAll();
-        void Update(T entity);
-        void Delete(int id);
-        void Add(T entity);
+        IDataResult<List<T>> GetAll();
+        IDataResult<T> Get(int id);
+        IResult Update(T entity);
+        IResult Delete(int id);
+        IResult Add(T entity);
     }
 }
