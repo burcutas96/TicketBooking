@@ -1,41 +1,18 @@
-﻿using Entities.Concrete;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore.Design;
+using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
     public class TicketBookingContext : DbContext
     {
-        public DbSet<Flight> Flights { get; set; }
-        public DbSet<Airport> Airports { get; set; }
-        public DbSet<Passenger> Passengers { get; set; }
-
-        public TicketBookingContext(DbContextOptions options) : base(options){}
-        
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            modelBuilder.Entity<Passenger>().Property(p=>p.FirstName).HasMaxLength(50);
-            modelBuilder.Entity<Passenger>().Property(p => p.LastName).HasMaxLength(50);
-            modelBuilder.Entity<Passenger>().Property(p => p.Email).HasMaxLength(100);
-            modelBuilder.Entity<Passenger>().Property(p => p.Phone).HasMaxLength(16);
-
-
-            //modelBuilder.Entity<Airport>().
-            //    HasMany(a => a.Flights)
-            //    .WithOne(f => f.ArrivePort)
-            //    .HasForeignKey(f => f.ArrivePortId);
-            modelBuilder.Entity<Flight>()
-                .HasOne(f=>f.ArrivePort)
-                .WithMany(a=>a.Flights)
-                .HasForeignKey(f=>f.ArrivePortId)
-                .OnDelete(DeleteBehavior.NoAction);
-            //modelBuilder.Entity<Flight>()
-            //    .HasOne(f => f.DeparturePort)
-            //    .WithMany(a => a.Flights)
-            //    .HasForeignKey(f => f.DeparturePortId)
-            //    .OnDelete(DeleteBehavior.NoAction);
-            base.OnModelCreating(modelBuilder);
-
-
+            options.UseNpgsql(@"Server=ticket-booking.cl7uvv8utzfs.eu-north-1.rds.amazonaws.com;Port=5432;Database=flight_ticket_booking;User Id=postgres;Password=ticketbooking123;");
         }
+
+        DbSet<Person> persons { get; set; }
+
     }
 }

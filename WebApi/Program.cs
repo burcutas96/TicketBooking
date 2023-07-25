@@ -1,4 +1,7 @@
-using DataAccess;
+using Business.Abstract;
+using Business.Concrete;
+using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +11,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDataAccessServices();
+
+builder.Services.AddSingleton<IPersonDal, EfPersonDal>();
+builder.Services.AddSingleton<IPersonService, PersonManager>();
 
 var app = builder.Build();
 

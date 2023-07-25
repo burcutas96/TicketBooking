@@ -1,17 +1,82 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\WebApi\\WebApi.csproj": {}
+    "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Desktop\\GitHub\\Backend\\RentACarProject\\Core\\Core.csproj": {
+    "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Business\\Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\GitHub\\Backend\\RentACarProject\\Core\\Core.csproj",
-        "projectName": "Core",
-        "projectPath": "C:\\Users\\HP\\Desktop\\GitHub\\Backend\\RentACarProject\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Business\\Business.csproj",
+        "projectName": "Business",
+        "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Business\\Business.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\GitHub\\Backend\\RentACarProject\\Core\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Core\\Core.csproj"
+              },
+              "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\DataAccess\\DataAccess.csproj"
+              },
+              "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Entities\\Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Core\\Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Core\\Core.csproj",
+        "projectName": "Core",
+        "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,13 +105,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Http.Features": {
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.17, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[6.0.3, )"
+              "version": "[7.0.5, )"
             }
           },
           "imports": [
@@ -55,7 +116,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -64,18 +126,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\DataAccess\\DataAccess.csproj",
+        "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -92,11 +154,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\HP\\Desktop\\GitHub\\Backend\\RentACarProject\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\HP\\Desktop\\GitHub\\Backend\\RentACarProject\\Core\\Core.csproj"
-              },
-              "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\Entities\\Entities.csproj"
+              "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Entities\\Entities.csproj"
               }
             }
           }
@@ -113,23 +172,13 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.20, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.20, )"
-            },
-            "Microsoft.Extensions.Configuration": {
-              "target": "Package",
-              "version": "[6.0.1, )"
-            },
-            "Microsoft.Extensions.Configuration.Json": {
-              "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0, )"
             },
             "Npgsql": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[7.0.4, )"
             }
@@ -140,7 +189,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -149,18 +199,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\Entities\\Entities.csproj": {
+    "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\Entities\\Entities.csproj",
+        "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\Entities\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -177,8 +227,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\HP\\Desktop\\GitHub\\Backend\\RentACarProject\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\HP\\Desktop\\GitHub\\Backend\\RentACarProject\\Core\\Core.csproj"
+              "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Core\\Core.csproj"
               }
             }
           }
@@ -198,7 +248,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -207,18 +258,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\WebApi\\WebApi.csproj": {
+    "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\WebApi\\WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\WebApi\\WebApi.csproj",
+        "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\WebApi\\WebApi.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\WebApi\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -229,14 +280,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\HP\\Desktop\\GitHub\\TicketBooking\\DataAccess\\DataAccess.csproj"
+              "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Business\\Business.csproj": {
+                "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\Business\\Business.csproj"
+              },
+              "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\TicketBooking\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -262,7 +317,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -274,7 +330,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
