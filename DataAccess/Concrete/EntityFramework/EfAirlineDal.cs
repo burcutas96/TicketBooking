@@ -4,7 +4,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfBasePriceDal : EfEntityRepositoryBase<BasePrice,TicketBookingContext>, IBasePriceDal
+    public class EfAirlineDal : EfEntityRepositoryBase<Airline, TicketBookingContext>, IAirlineDal
     {
     }
 }
