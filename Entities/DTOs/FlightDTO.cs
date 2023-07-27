@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Entities.DTOs
+{
+    public class FlightDTO
+    {
+        public int Id { get; set; }
+        public string FlightNo { get; set; }
+        public string AirlineCode { get; set; }
+        public string Airline { get; set; }
+        public string DepTime { get; set; }
+        public string ArrTime { get; set; }
+        public string FlightId { get; set; }
+        public string DepPort { get; set; }
+        public string ArrPort { get; set; }
+        public string FlightDate { get; set; }
+        public List<PassengerPrice> PassengerPrices { get; set; }
+
+    }
+
+    public class PassengerPrice
+    {
+        public string Type { get; set; }
+        public float PriceWithoutTax { get; set; }
+        public float TotalTax { get; set; }
+        public float Surcharge { get; set; }
+        public float Price { get; set; }
+        public string Currency { get; set; }
+    }
+}

@@ -1,7 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.EntityFrameworkCore.Design;
-using Entities.Concrete;
+﻿using Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFramework
 {
@@ -9,12 +7,27 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseNpgsql(@"Server=ticket-booking.cl7uvv8utzfs.eu-north-1.rds.amazonaws.com;Port=5432;Database=flight_ticket_booking;User Id=postgres;Password=ticketbooking123;");
+            options.UseNpgsql(@"Server=ticket-booking.cl7uvv8utzfs.eu-north-1.rds.amazonaws.com;Port=5432;Database=FlightTicketBooking;User Id=postgres;Password=ticketbooking123;");
         }
 
-        DbSet<BasePrice> base_prices { get; set; } 
-        DbSet<PriceDetail> price_details { get; set; } 
+        public DbSet<Airline> Airlines { get; set; }
+        public DbSet<Airport> Airports { get; set; }
+        public DbSet<Flight> Flights { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Flight>()
+                .HasOne(f => f.ArrivePort)
+                .WithMany(a => a.ArriveFlights)
+                .HasForeignKey(f => f.ArrivePortId);
 
+            modelBuilder.Entity<Flight>()
+                .HasOne(f => f.DeparturePort)
+                .WithMany(a => a.DepartureFlights)
+                .HasForeignKey(f => f.DeparturePortId);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
