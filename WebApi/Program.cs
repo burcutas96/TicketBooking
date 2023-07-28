@@ -1,3 +1,6 @@
+using Business.Abstract;
+using Business.Concrete;
+using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +12,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IAirlineDal,EfAirlineDal>();
+builder.Services.AddScoped<IAirportDal, EfAirportDal>();
+builder.Services.AddScoped<IAirportService, AirportManager>();
+builder.Services.AddScoped<IAirlineService, AirlineManager>();
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -17,6 +27,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader());
 
 app.UseHttpsRedirection();
 

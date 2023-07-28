@@ -8,8 +8,17 @@ namespace Entities.Concrete
         public float Price { get; set; }
         public float Surcharge { get; set; }
         public float TaxRatio { get; set; }
-        public PassengerType PassengerType { get; set; }
-        public Flight Flight { get; set; }
         public string Currency { get; set; }
+        public PassengerType PassengerType { get; set; }
+
+
+        public Flight Flight { get; set; }
+    }
+
+    public enum PassengerType
+    {
+        ADULT,
+        CHILD,
+        BABY
     }
 }

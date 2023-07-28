@@ -14,7 +14,6 @@ namespace Entities.DTOs
         public string Airline { get; set; }
         public string DepTime { get; set; }
         public string ArrTime { get; set; }
-        public string FlightId { get; set; }
         public string DepPort { get; set; }
         public string ArrPort { get; set; }
         public string FlightDate { get; set; }

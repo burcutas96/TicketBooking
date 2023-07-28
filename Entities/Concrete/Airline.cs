@@ -9,8 +9,9 @@ namespace Entities.Concrete
 {
     public class Airline : BaseEntity
     {
-        public string Name { get; set; }
         public string Code { get; set; }
+        public string Name { get; set; }
+
         public List<Flight> Flights { get; set; }
     }
 }
