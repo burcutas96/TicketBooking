@@ -1,4 +1,4 @@
-﻿using DataAccess.Concrete.EntityFramework;
+using DataAccess.Concrete.EntityFramework;
 using Entities.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,31 +6,45 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class FlightsController : ControllerBase
+    public class TicketsController : ControllerBase
     {
-        private IFlightService _flightService;
-        public FlightsController(IFlightService flightService)
+        private ITicketService _ticketService;
+
+        public TicketsController(ITicketService ticketService)
         {
-            _flightService = flightService;
+            _ticketService = ticketService;
         }
-        
+
+        [HttpPost]
+        public IActionResult Add(Ticket ticket)
+        {
+            var result = _ticketService.Add(ticket);
+
+            if (result.success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest();
+        }
+
         [HttpGet]
         public IActionResult GetAll()
         {
-            var result = _flightService.GetFlightDTOs();
-            
+            var result = _ticketService.GetAll();
+
             if (result.Success)
             {
                 return Ok(result);
             }
-            
+
             return BadRequest(result);
         }
-
+        
         [HttpGet]
         public IActionResult Get(int id)
         {
-            var result = _flightService.Get(id);
+            var result = _ticketService.Get(id);
 
             if (result.Success)
             {
@@ -39,11 +53,11 @@ namespace WebApi.Controllers
             
             return BadRequest(result);
         }
-
+        
         [HttpDelete]
-        public IActionResult Delete(Flight flight)
+        public IActionResult Delete(Ticket ticket)
         {
-            var result = _flightService.Delete(flight);
+            var result = _flightService.Delete(ticket);
 
             if (result.Success)
             {
@@ -52,11 +66,11 @@ namespace WebApi.Controllers
             
             return BadRequest();
         }
-        
+
         [HttpPut]
-        public IActionResult Update(Flight flight)
+        public IActionResult Update(Ticket ticket)
         {
-            var result = _flightService.Update(flight);
+            var result = _flightService.Update(ticket);
 
             if (result.Success)
             {
@@ -65,5 +79,6 @@ namespace WebApi.Controllers
             
             return BadRequest(result);
         }
+
     }
 }
