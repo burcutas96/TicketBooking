@@ -1,11 +1,6 @@
-﻿using Business.Abstract;
-using Core.Utilities.Result;
-using DataAccess.Concrete.EntityFramework;
-using Entities.Concrete;
+﻿using DataAccess.Concrete.EntityFramework;
 using Entities.DTOs;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Controllers
 {
@@ -13,33 +8,41 @@ namespace WebApi.Controllers
     [ApiController]
     public class FlightsController : ControllerBase
     {
+        
+
         [HttpGet]
         public IActionResult GetAll()
         {
             TicketBookingContext context = new TicketBookingContext();
 
-            var data = context.Flights
-                .Select(x => new FlightDTO
-                {
-                    Id = x.Id, 
-                    FlightNo = x.Airline.Code + x.Id,
-                    AirlineCode = x.Airline.Code,
-                    Airline = x.Airline.Name, 
-                    DepTime = x.DepartureTime.ToString("HH:mm:ss"),
-                    ArrTime = x.ArriveTime.ToString("HH:mm:ss"),
-                    DepPort = x.DeparturePort.Code,
-                    ArrPort = x.ArrivePort.Code,
-                    FlightDate = x.ArriveTime.ToString("dd.MM.yyyy"),
-                    PassengerPrices = x.Tickets.Select(t => new PassengerPrice()
-                    {
-                        PriceWithoutTax = t.Price,
-                        Currency = t.Currency,
-                        Surcharge = t.Surcharge,
-                        TotalTax = t.Price * t.TaxRatio,
-                        Type = t.PassengerType.ToString(),
-                        Price = (t.Price * t.TaxRatio) + t.Price
-                    }).ToList()
-                }).ToList();
+            var data = from flight in context.Flights
+                       join airline in context.Airlines
+                       on flight.AirlineId equals airline.Id
+
+                       select new FlightDTO
+                       {
+                           Id = flight.Id,
+                           FlightNo = airline.Code + flight.Id,
+                           AirlineCode = airline.Code,
+                           Airline = airline.Name,
+                           DepTime = flight.DepartureTime.ToString("HH:mm:ss"),
+                           ArrTime = flight.ArriveTime.ToString("HH:mm:ss"),
+                           DepPort = flight.DeparturePort.Code,
+                           ArrPort = flight.ArrivePort.Code,
+                           FlightDate = flight.ArriveTime.ToString("dd.MM.yyyy"),
+                           PassengerPrices = flight.Tickets.Select(t => new PassengerPrice()
+                           {
+                               PriceWithoutTax = t.Price,
+                               Currency = t.Currency,
+                               Surcharge = t.Surcharge,
+                               TotalTax = t.Price * t.TaxRatio,
+                               Type = t.PassengerType.ToString(),
+                               Price = (t.Price * t.TaxRatio) + t.Price
+                           }).ToList()
+                       };
+
+
+                
 
             return Ok(data);
         }

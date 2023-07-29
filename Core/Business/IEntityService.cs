@@ -8,7 +8,7 @@ namespace Core.Business
         IDataResult<List<T>> GetAll();
         IDataResult<T> Get(int id);
         IResult Update(T entity);
-        IResult Delete(int id);
+        IResult Delete(T entity);
         IResult Add(T entity);
     }
 }

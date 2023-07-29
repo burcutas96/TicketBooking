@@ -15,21 +15,5 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Airport> Airports { get; set; }
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
-
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Flight>()
-                .HasOne(f => f.ArrivePort)
-                .WithMany(a => a.ArriveFlights)
-                .HasForeignKey(f => f.ArrivePortId);
-
-            modelBuilder.Entity<Flight>()
-                .HasOne(f => f.DeparturePort)
-                .WithMany(a => a.DepartureFlights)
-                .HasForeignKey(f => f.DeparturePortId);
-
-            base.OnModelCreating(modelBuilder);
-        }
     }
 }

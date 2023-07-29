@@ -10,9 +10,6 @@ namespace Entities.Concrete
         public float TaxRatio { get; set; }
         public string Currency { get; set; }
         public PassengerType PassengerType { get; set; }
-
-
-        public Flight Flight { get; set; }
     }
 
     public enum PassengerType
