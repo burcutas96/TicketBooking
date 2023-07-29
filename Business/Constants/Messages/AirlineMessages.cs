@@ -7,5 +7,6 @@
         public static string AirlineUpdated = "Havayolu Güncellendi";
         public static string AirlineWasBrought = "Havayolu Getirildi";
         public static string AirlinesListed = "Havayolları Getirildi";
+        public static string AirlineNotFound = "Havayolu Bulunamadı";
     }
 }

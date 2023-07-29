@@ -7,5 +7,6 @@
         public static string TicketUpdated = "Bilet Güncellendi";
         public static string TicketWasBrought = "Bilet Getirildi";
         public static string TicketsListed = "Biletler Getirildi";
+        public static string TicketNotFound = "Bilet Bulunamadı";
     }
 }
