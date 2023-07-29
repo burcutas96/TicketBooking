@@ -55,5 +55,10 @@ namespace Business.Concrete
             _airportDal.Update(entity);
             return new SuccessResult(FlightMessages.FlightUpdated);
         }
+
+        public IDataResult<List<FlightDTO>> GetFlightDTOs()
+        {
+            return new SuccesDataResult<List<FlightDTO>>(_flightDal.GetFlightDTOs(), FlightMessages.FlightsListed);
+        }
     }
 }

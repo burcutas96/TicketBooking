@@ -12,9 +12,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IAirlineDal,EfAirlineDal>();
+
+
+builder.Services.AddScoped<ITicketDal,EfTicketDal>();
+builder.Services.AddScoped<ITicketService,TicketManager>();
+
+builder.Services.AddScoped<IFlightDal,EfFlightDal>();
+builder.Services.AddScoped<IFlightService,FlightManager>();
+
 builder.Services.AddScoped<IAirportDal, EfAirportDal>();
 builder.Services.AddScoped<IAirportService, AirportManager>();
+
+builder.Services.AddScoped<IAirlineDal,EfAirlineDal>();
 builder.Services.AddScoped<IAirlineService, AirlineManager>();
 
 
