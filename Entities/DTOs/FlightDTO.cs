@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entities.DTOs
+﻿namespace Entities.DTOs
 {
     public class FlightDTO
     {
         public int Id { get; set; }
         public string FlightNo { get; set; }
         public string AirlineCode { get; set; }
-        public string Airline { get; set; }
+        public string? Airline { get; set; }
         public string DepTime { get; set; }
         public string ArrTime { get; set; }
         public string DepPort { get; set; }
