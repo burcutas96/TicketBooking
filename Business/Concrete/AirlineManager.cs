@@ -31,7 +31,12 @@ namespace Business.Concrete
 
         public IDataResult<Airline> Get(int id)
         {
-            return new SuccessDataResult<Airline>(_airlineDal.Get(a => a.Id == id), AirlineMessages.AirlineWasBrought);
+            var result = _airlineDal.Get(a => a.Id == id);
+            if (result == null)
+            {
+                return new ErrorDataResult<Airline>(result, AirlineMessages.AirlineNotFound);
+            }
+            return new SuccessDataResult<Airline>(result, AirlineMessages.AirlineWasBrought);
         }
 
         public IDataResult<List<Airline>> GetAll()
@@ -41,6 +46,13 @@ namespace Business.Concrete
 
         public IResult Update(Airline entity)
         {
+            var result = _airlineDal.Get(a => a.Id == id);
+            
+            if (result == null)
+            {
+                return new ErrorResult<Airline>(AirlineMessages.AirlineNotFound);
+            }
+            
             _airlineDal.Update(entity);
             return new SuccessResult(AirlineMessages.AirlineUpdated);
         }

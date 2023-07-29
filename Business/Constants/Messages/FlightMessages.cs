@@ -7,5 +7,7 @@
         public static string FlightUpdated = "Uçuş Güncellendi";
         public static string FlightWasBrought = "Uçuş Getirildi";
         public static string FlightsListed = "Uçuşlar Getirildi";
+        public static string FlightNotFound = "Uçuş Bulunamadı";
+
     }
 }
