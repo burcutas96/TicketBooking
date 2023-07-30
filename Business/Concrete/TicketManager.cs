@@ -18,8 +18,9 @@ namespace Business.Concrete
         public IResult Add(Ticket entity)
         {
             entity.Id = 0;
+            entity.SalesPrice = entity.BasePrice + entity.Surcharge;
             _ticketDal.Add(entity);
-            return new SuccessResult(TicketMessages.TickedAdded);
+            return new SuccessResult(TicketMessages.TicketAdded);
         }
         
         public IResult Delete(Ticket entity)
@@ -35,7 +36,7 @@ namespace Business.Concrete
             {
                 return new ErrorDataResult<Ticket>(result, TicketMessages.TicketNotFound);
             } 
-            return new SuccessDataResult<Ticket>(Ticket, TicketMessages.TicketWasBrought);
+            return new SuccessDataResult<Ticket>(result, TicketMessages.TicketWasBrought);
         }
 
         public IDataResult<List<Ticket>> GetAll()
@@ -45,11 +46,11 @@ namespace Business.Concrete
 
         public IResult Update(Ticket entity)
         {
-            var result = _ticketDal.Get(a => a.Id = entity.Id);
+            var result = _ticketDal.Get(a => a.Id == entity.Id);
             
             if (result == null)
             {
-                return new ErrorResult<Ticket>(TicketMessages.TicketNotFound)
+                return new ErrorResult(TicketMessages.TicketNotFound);
             }
             
             _ticketDal.Update(entity);

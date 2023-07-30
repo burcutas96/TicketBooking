@@ -18,10 +18,10 @@
     public class PassengerPrice
     {
         public string Type { get; set; }
-        public float PriceWithoutTax { get; set; }
+        public float BasePrice { get; set; }
         public float TotalTax { get; set; }
         public float Surcharge { get; set; }
-        public float Price { get; set; }
+        public float SalesPrice { get; set; }
         public string Currency { get; set; }
     }
 }

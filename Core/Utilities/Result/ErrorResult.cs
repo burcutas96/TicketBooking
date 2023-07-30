@@ -8,12 +8,12 @@ namespace Core.Utilities.Result
 {
     public class ErrorResult : Result
     {
-        public ErrorResult(string message) : base(message, true)
+        public ErrorResult(string message) : base(message, false)
         {
 
         }
 
-        public ErrorResult() : base(true)
+        public ErrorResult() : base(false)
         {
 
         }

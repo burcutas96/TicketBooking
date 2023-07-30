@@ -4,8 +4,9 @@ namespace Entities.Concrete
 {
     public class Flight : BaseEntity
     {
-        public DateTime DepartureTime { get; set; }
-        public DateTime ArriveTime { get; set; }
+        public TimeSpan DepartureTime { get; set; }
+        public TimeSpan ArriveTime { get; set; }
+        public DateTime FlightDate { get; set; } 
         public int AirlineId { get; set; }
         public int DeparturePortId { get; set; }
         public int ArrivePortId { get; set; }

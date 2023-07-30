@@ -65,7 +65,7 @@ namespace WebApi.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result);
         }
 
 
@@ -78,7 +78,7 @@ namespace WebApi.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result);
         }
     }
 }

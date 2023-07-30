@@ -1,4 +1,6 @@
+using Business.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using Entities.Concrete;
 using Entities.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,7 +22,7 @@ namespace WebApi.Controllers
         {
             var result = _ticketService.Add(ticket);
 
-            if (result.success)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -57,7 +59,7 @@ namespace WebApi.Controllers
         [HttpDelete]
         public IActionResult Delete(Ticket ticket)
         {
-            var result = _flightService.Delete(ticket);
+            var result = _ticketService.Delete(ticket);
 
             if (result.Success)
             {
@@ -70,7 +72,7 @@ namespace WebApi.Controllers
         [HttpPut]
         public IActionResult Update(Ticket ticket)
         {
-            var result = _flightService.Update(ticket);
+            var result = _ticketService.Update(ticket);
 
             if (result.Success)
             {

@@ -3,6 +3,7 @@ using Business.Constants.Messages;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -19,13 +20,13 @@ namespace Business.Concrete
         {
             entity.Id = 0;
             _flightDal.Add(entity);
-            return new SuccesResult(FlightMessages.FlightAdded);
+            return new SuccessResult(FlightMessages.FlightAdded);
         }
         
         public IResult Delete(Flight entity)
         {
             _flightDal.Delete(entity);
-            return new SuccesResult(FlightMessages.FlightDeleted);
+            return new SuccessResult(FlightMessages.FlightDeleted);
         }
         
         public IDataResult<Flight> Get(int id)
@@ -52,13 +53,13 @@ namespace Business.Concrete
                 return new ErrorDataResult<Flight>(result, FlightMessages.FlightNotFound);
             }    
             
-            _airportDal.Update(entity);
+            _flightDal.Update(entity);
             return new SuccessResult(FlightMessages.FlightUpdated);
         }
 
         public IDataResult<List<FlightDTO>> GetFlightDTOs()
         {
-            return new SuccesDataResult<List<FlightDTO>>(_flightDal.GetFlightDTOs(), FlightMessages.FlightsListed);
+            return new SuccessDataResult<List<FlightDTO>>(_flightDal.GetFlightDTOs(), FlightMessages.FlightsListed);
         }
     }
 }

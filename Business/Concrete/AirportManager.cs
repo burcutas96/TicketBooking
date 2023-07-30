@@ -34,7 +34,7 @@ namespace Business.Concrete
             var result = _airportDal.Get(a => a.Id == id);
             if (result == null)
             {
-                return new ErrorDataResult<Airport>(result, AirportMessages.AirportNotFound)
+                return new ErrorDataResult<Airport>(result, AirportMessages.AirportNotFound);
             }
             
             return new SuccessDataResult<Airport>(result, AirportMessages.AirportWasBrought);
@@ -47,10 +47,10 @@ namespace Business.Concrete
 
         public IResult Update(Airport entity)
         {   
-            var result = _airportDal.Get(a => a.Id == id);
+            var result = _airportDal.Get(a => a.Id == entity.Id);
             if (result == null)
             {
-                return new ErrorResult<Airport>(AirportMessages.AirportNotFound)
+                return new ErrorResult(AirportMessages.AirportNotFound);
             }
             _airportDal.Update(entity);
             return new SuccessResult(AirportMessages.AirportUpdated);

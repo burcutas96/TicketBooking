@@ -25,6 +25,12 @@ namespace Business.Concrete
 
         public IResult Delete(Airline entity)
         {
+            var result = _airlineDal.Get(a => a.Id == entity.Id);
+
+            if (result == null)
+            {
+                return new ErrorResult(AirlineMessages.AirlineNotFound);
+            }
             _airlineDal.Delete(entity);
             return new SuccessResult(AirlineMessages.AirlineDeleted);
         }
@@ -46,13 +52,12 @@ namespace Business.Concrete
 
         public IResult Update(Airline entity)
         {
-            var result = _airlineDal.Get(a => a.Id == id);
+            var result = _airlineDal.Get(a => a.Id == entity.Id);
             
             if (result == null)
             {
-                return new ErrorResult<Airline>(AirlineMessages.AirlineNotFound);
+                return new ErrorResult(AirlineMessages.AirlineNotFound);
             }
-            
             _airlineDal.Update(entity);
             return new SuccessResult(AirlineMessages.AirlineUpdated);
         }
