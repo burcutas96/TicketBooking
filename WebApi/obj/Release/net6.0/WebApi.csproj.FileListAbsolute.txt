@@ -54,3 +54,10 @@ C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Release\net6.0\Business.pd
 C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Release\net6.0\Core.pdb
 C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Release\net6.0\Humanizer.dll
 C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Release\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Release\net6.0\System.Net.Http.Formatting.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Release\net6.0\System.Web.Http.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Release\net6.0\System.Web.Http.WebHost.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Release\net6.0\Microsoft.Web.Infrastructure.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Release\net6.0\Newtonsoft.Json.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Release\net6.0\Swashbuckle.Core.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Release\net6.0\WebActivatorEx.dll

@@ -2,6 +2,7 @@ using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,16 +16,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
     options.AddPolicy("SpesificOrigins", policy => policy.WithOrigins("http://localhost:3000", "https://fly-ticket-booking-challenge.vercel.app/", "http://fly-ticket-booking-challenge.vercel.app/").AllowAnyHeader()));
 
-
-//builder.Services.AddCors(options =>
-//{
-//    options.AddDefaultPolicy(builder =>
-//    {
-//        builder.AllowAnyOrigin() // Tüm originlere izin ver
-//               .AllowAnyMethod() // Tüm HTTP metotlarýna izin ver
-//               .AllowAnyHeader(); // Tüm HTTP baþlýklarýna izin ver
-//    });
-//});
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+});
 
 builder.Services.AddScoped<ITicketDal,EfTicketDal>();
 builder.Services.AddScoped<ITicketService,TicketManager>();
@@ -48,7 +43,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    });
 }
 
 app.UseCors("SpesificOrigins");

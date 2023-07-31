@@ -123,3 +123,10 @@ C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\obj\Debug\net6.0\WebApi.pdb
 C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\obj\Debug\net6.0\WebApi.genruntimeconfig.cache
 C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\obj\Debug\net6.0\ref\WebApi.dll
 C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Debug\net6.0\System.Web.Http.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Debug\net6.0\System.Web.Http.WebHost.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Debug\net6.0\Swashbuckle.Core.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Debug\net6.0\WebActivatorEx.dll
