@@ -16,10 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
     options.AddPolicy("SpesificOrigins", policy => policy.WithOrigins("http://localhost:3000", "https://fly-ticket-booking-challenge.vercel.app/", "http://fly-ticket-booking-challenge.vercel.app/").AllowAnyHeader()));
 
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-});
+builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ITicketDal,EfTicketDal>();
 builder.Services.AddScoped<ITicketService,TicketManager>();
@@ -50,6 +47,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("SpesificOrigins");
+
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 

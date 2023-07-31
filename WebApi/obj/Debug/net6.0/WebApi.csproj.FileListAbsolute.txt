@@ -130,3 +130,4 @@ C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Debug\net6.0\Microsoft.Web
 C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Debug\net6.0\Swashbuckle.Core.dll
 C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Debug\net6.0\WebActivatorEx.dll
+C:\Users\HP\Documents\GitHub\TicketBooking\WebApi\bin\Debug\net6.0\WebApi.staticwebassets.runtime.json
