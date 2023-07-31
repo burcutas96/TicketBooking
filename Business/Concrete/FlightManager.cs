@@ -25,6 +25,11 @@ namespace Business.Concrete
         
         public IResult Delete(Flight entity)
         {
+            var result = _flightDal.Get(a => a.Id == entity.Id);
+            if (result == null)
+            {
+                return new ErrorResult(FlightMessages.FlightNotFound);
+            }
             _flightDal.Delete(entity);
             return new SuccessResult(FlightMessages.FlightDeleted);
         }
@@ -50,16 +55,21 @@ namespace Business.Concrete
             
             if (result == null)
             {
-                return new ErrorDataResult<Flight>(result, FlightMessages.FlightNotFound);
+                return new ErrorResult(FlightMessages.FlightNotFound);
             }    
             
             _flightDal.Update(entity);
             return new SuccessResult(FlightMessages.FlightUpdated);
         }
 
-        public IDataResult<List<FlightDTO>> GetFlightDTOs()
+        public IDataResult<List<FlightDTO>> GetReturnFlightDTOs()
         {
-            return new SuccessDataResult<List<FlightDTO>>(_flightDal.GetFlightDTOs(), FlightMessages.FlightsListed);
+            return new SuccessDataResult<List<FlightDTO>>(_flightDal.GetFlightDTOs(f => f.FlightType == "Return"), FlightMessages.FlightsListed);
+        }
+
+        public IDataResult<List<FlightDTO>> GetDepartureFlightDTOs()
+        {
+            return new SuccessDataResult<List<FlightDTO>>(_flightDal.GetFlightDTOs(f => f.FlightType == "Departure"), FlightMessages.FlightsListed);
         }
     }
 }

@@ -15,5 +15,7 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Airport> Airports { get; set; }
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<FlightType> FlightTypes { get; set; }
+
     }
 }

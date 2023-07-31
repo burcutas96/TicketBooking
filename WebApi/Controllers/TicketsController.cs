@@ -1,7 +1,5 @@
 using Business.Abstract;
-using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
-using Entities.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -66,7 +64,7 @@ namespace WebApi.Controllers
                 return Ok(result);
             }
             
-            return BadRequest();
+            return BadRequest(result);
         }
 
         [HttpPut]

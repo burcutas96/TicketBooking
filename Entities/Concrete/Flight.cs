@@ -10,10 +10,13 @@ namespace Entities.Concrete
         public int AirlineId { get; set; }
         public int DeparturePortId { get; set; }
         public int ArrivePortId { get; set; }
+        public int FlightTypeId { get; set; }
 
 
         public List<Ticket> Tickets { get; set; }
         public Airport DeparturePort { get; set; }
         public Airport ArrivePort { get; set; }
+        public FlightType FlightType { get; set; }
     }
+
 }

@@ -25,6 +25,13 @@ namespace Business.Concrete
         
         public IResult Delete(Ticket entity)
         {
+            var result = _ticketDal.Get(a => a.Id == entity.Id);
+
+            if (result == null)
+            {
+                return new ErrorResult(TicketMessages.TicketNotFound);
+            }
+
             _ticketDal.Delete(entity);
             return new SuccessResult(TicketMessages.TicketDeleted);
         }

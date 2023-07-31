@@ -25,6 +25,12 @@ namespace Business.Concrete
 
         public IResult Delete(Airport entity)
         {
+            var result = _airportDal.Get(a => a.Id == entity.Id);
+            if (result == null)
+            {
+                return new ErrorResult(AirportMessages.AirportNotFound);
+            }
+
             _airportDal.Delete(entity);
             return new SuccessResult(AirportMessages.AirportDeleted);
         }

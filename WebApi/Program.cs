@@ -12,7 +12,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+    options.AddPolicy("SpesificOrigins", policy => policy.WithOrigins("http://localhost:3000", "https://fly-ticket-booking-challenge.vercel.app/", "http://fly-ticket-booking-challenge.vercel.app/").AllowAnyHeader()));
 
+
+//builder.Services.AddCors(options =>
+//{
+//    options.AddDefaultPolicy(builder =>
+//    {
+//        builder.AllowAnyOrigin() // Tüm originlere izin ver
+//               .AllowAnyMethod() // Tüm HTTP metotlarýna izin ver
+//               .AllowAnyHeader(); // Tüm HTTP baþlýklarýna izin ver
+//    });
+//});
 
 builder.Services.AddScoped<ITicketDal,EfTicketDal>();
 builder.Services.AddScoped<ITicketService,TicketManager>();
@@ -20,12 +32,14 @@ builder.Services.AddScoped<ITicketService,TicketManager>();
 builder.Services.AddScoped<IFlightDal,EfFlightDal>();
 builder.Services.AddScoped<IFlightService,FlightManager>();
 
+builder.Services.AddScoped<IFlightTypeDal,EfFlightTypeDal>();
+builder.Services.AddScoped<IFlightTypeService,FlightTypeManager>();
+
 builder.Services.AddScoped<IAirportDal, EfAirportDal>();
 builder.Services.AddScoped<IAirportService, AirportManager>();
 
 builder.Services.AddScoped<IAirlineDal,EfAirlineDal>();
 builder.Services.AddScoped<IAirlineService, AirlineManager>();
-
 
 
 var app = builder.Build();
@@ -37,7 +51,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader());
+app.UseCors("SpesificOrigins");
 
 app.UseHttpsRedirection();
 

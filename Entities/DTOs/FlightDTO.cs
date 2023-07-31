@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
         public string FlightNo { get; set; }
+        public string FlightType { get; set; }
         public string AirlineCode { get; set; }
         public string? Airline { get; set; }
         public string DepTime { get; set; }

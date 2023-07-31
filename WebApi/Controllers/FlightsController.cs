@@ -1,7 +1,5 @@
 ﻿using Business.Abstract;
-using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
-using Entities.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -17,15 +15,28 @@ namespace WebApi.Controllers
         }
         
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult GetReturnFlights()
         {
-            var result = _flightService.GetFlightDTOs();
+            var result = _flightService.GetReturnFlightDTOs();
             
             if (result.Success)
             {
                 return Ok(result);
             }
             
+            return BadRequest(result);
+        }
+
+        [HttpGet]
+        public IActionResult GetDepartureFlights()
+        {
+            var result = _flightService.GetDepartureFlightDTOs();
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
             return BadRequest(result);
         }
 
@@ -42,6 +53,19 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
 
+        [HttpPost]
+        public IActionResult Add(Flight flight)
+        {
+            var result = _flightService.Add(flight);
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
         [HttpDelete]
         public IActionResult Delete(Flight flight)
         {
@@ -52,7 +76,7 @@ namespace WebApi.Controllers
                 return Ok(result);
             }
             
-            return BadRequest();
+            return BadRequest(result);
         }
         
         [HttpPut]
